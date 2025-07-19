@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Supplier Tree View -->
+    <record id="view_supplier_tree" model="ir.ui.view">
+        <field name="name">material.supplier.tree</field>
+        <field name="model">material.supplier</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="address"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Supplier Form View -->
+    <record id="view_supplier_form" model="ir.ui.view">
+        <field name="name">material.supplier.form</field>
+        <field name="model">material.supplier</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="email"/>
+                        </group>
+                        <group>
+                            <field name="phone"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="address"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Supplier Search View -->
+    <record id="view_supplier_search" model="ir.ui.view">
+        <field name="name">material.supplier.search</field>
+        <field name="model">material.supplier</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Supplier Action -->
+    <record id="action_supplier" model="ir.actions.act_window">
+        <field name="name">Suppliers</field>
+        <field name="res_model">material.supplier</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_supplier_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first supplier!
+            </p>
+            <p>
+                Manage supplier information for your materials.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_suppliers" name="Suppliers" parent="menu_material_management_root" action="action_supplier" sequence="20"/>
+</odoo> 

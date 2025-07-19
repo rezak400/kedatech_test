@@ -1,0 +1,402 @@
+{
+    "info": {
+        "_postman_id": "12345678-1234-1234-1234-123456789012",
+        "name": "Material Management API - Odoo 14 (Proper REST)",
+        "description": "Complete REST API collection for Material Management module in Odoo 14.\n\n**Setup Instructions:**\n1. Start Odoo with: `python3 odoo-bin -d your_database --addons-path=addons,custom_addons`\n2. Install 'Material Management' module via Apps menu\n3. Update collection variables if using different port\n\n**Proper REST API:**\n- GET requests use query parameters (no body)\n- POST/PUT/DELETE use JSON-RPC format in body\n- Clean and semantic HTTP methods\n\n**Authentication:** Public (no session required)\n**Base URL:** http://localhost:14100",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "📁 Suppliers",
+            "item": [
+                {
+                    "name": "Get All Suppliers",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/suppliers",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "suppliers"]
+                        },
+                        "description": "Retrieve all suppliers using proper GET method without body"
+                    }
+                },
+                {
+                    "name": "Create Supplier",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"call\",\n    \"params\": {\n        \"name\": \"PT Supplier Test\",\n        \"email\": \"test@supplier.com\",\n        \"phone\": \"081234567890\",\n        \"address\": \"Jl. Test No. 123, Jakarta\"\n    },\n    \"id\": null\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/suppliers",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "suppliers"]
+                        },
+                        "description": "Create a new supplier using POST method with JSON-RPC format. Only 'name' field is required."
+                    }
+                }
+            ],
+            "description": "Supplier management endpoints using proper REST methods"
+        },
+        {
+            "name": "📁 Materials",
+            "item": [
+                {
+                    "name": "Get All Materials",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/materials",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "materials"]
+                        },
+                        "description": "Retrieve all materials using proper GET method without body"
+                    }
+                },
+                {
+                    "name": "Filter Materials by Type - Fabric",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/materials?material_type=fabric",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "materials"],
+                            "query": [
+                                {
+                                    "key": "material_type",
+                                    "value": "fabric"
+                                }
+                            ]
+                        },
+                        "description": "Filter materials by type: fabric using query parameters. Other options: jeans, cotton"
+                    }
+                },
+                {
+                    "name": "Filter Materials by Type - Jeans",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/materials?material_type=jeans",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "materials"],
+                            "query": [
+                                {
+                                    "key": "material_type",
+                                    "value": "jeans"
+                                }
+                            ]
+                        },
+                        "description": "Filter materials by type: jeans using query parameters"
+                    }
+                },
+                {
+                    "name": "Filter Materials by Type - Cotton",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/materials?material_type=cotton",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "materials"],
+                            "query": [
+                                {
+                                    "key": "material_type",
+                                    "value": "cotton"
+                                }
+                            ]
+                        },
+                        "description": "Filter materials by type: cotton using query parameters"
+                    }
+                },
+                {
+                    "name": "Get Specific Material",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/materials/{{material_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "materials", "{{material_id}}"]
+                        },
+                        "description": "Get details of a specific material by ID using proper GET method without body. Change material_id variable or replace {{material_id}} with actual ID."
+                    }
+                },
+                {
+                    "name": "Create Material",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"call\",\n    \"params\": {\n        \"material_code\": \"FAB001\",\n        \"material_name\": \"Cotton Fabric Premium\",\n        \"material_type\": \"fabric\",\n        \"material_buy_price\": 150.0,\n        \"supplier_id\": 1\n    },\n    \"id\": null\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/materials",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "materials"]
+                        },
+                        "description": "Create a new material using POST method with JSON-RPC format. All fields are required:\n- material_code: unique code\n- material_name: material name\n- material_type: fabric/jeans/cotton\n- material_buy_price: minimum 100\n- supplier_id: existing supplier ID"
+                    }
+                },
+                {
+                    "name": "Create Material - Jeans",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"call\",\n    \"params\": {\n        \"material_code\": \"JEA001\",\n        \"material_name\": \"Premium Denim Jeans\",\n        \"material_type\": \"jeans\",\n        \"material_buy_price\": 250.0,\n        \"supplier_id\": 1\n    },\n    \"id\": null\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/materials",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "materials"]
+                        },
+                        "description": "Create jeans material example using POST method with JSON-RPC format"
+                    }
+                },
+                {
+                    "name": "Create Material - Cotton",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"call\",\n    \"params\": {\n        \"material_code\": \"COT001\",\n        \"material_name\": \"Organic Cotton\",\n        \"material_type\": \"cotton\",\n        \"material_buy_price\": 120.0,\n        \"supplier_id\": 1\n    },\n    \"id\": null\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/materials",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "materials"]
+                        },
+                        "description": "Create cotton material example using POST method with JSON-RPC format"
+                    }
+                },
+                {
+                    "name": "Update Material",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"call\",\n    \"params\": {\n        \"material_name\": \"Premium Cotton Fabric Updated\",\n        \"material_buy_price\": 200.0\n    },\n    \"id\": null\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/materials/{{material_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "materials", "{{material_id}}"]
+                        },
+                        "description": "Update specific material fields using PUT method with JSON-RPC format. You can update any combination of fields except material_code (primary key)."
+                    }
+                },
+                {
+                    "name": "Delete Material",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"call\",\n    \"params\": {},\n    \"id\": null\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/materials/{{material_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "materials", "{{material_id}}"]
+                        },
+                        "description": "Permanently delete a material from the database using DELETE method with JSON-RPC format. Use with caution!"
+                    }
+                }
+            ],
+            "description": "Material management endpoints with proper REST methods"
+        },
+        {
+            "name": "📁 Test Cases",
+            "item": [
+                {
+                    "name": "❌ Create Material - Price Too Low (Should Fail)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"call\",\n    \"params\": {\n        \"material_code\": \"CHEAP001\",\n        \"material_name\": \"Cheap Material\",\n        \"material_type\": \"cotton\",\n        \"material_buy_price\": 50.0,\n        \"supplier_id\": 1\n    },\n    \"id\": null\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/materials",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "materials"]
+                        },
+                        "description": "Test validation: This should fail because material_buy_price (50) is less than minimum (100)"
+                    }
+                },
+                {
+                    "name": "❌ Create Material - Missing Required Field",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"call\",\n    \"params\": {\n        \"material_name\": \"Missing Code Material\",\n        \"material_type\": \"fabric\",\n        \"material_buy_price\": 150.0,\n        \"supplier_id\": 1\n    },\n    \"id\": null\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/materials",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "materials"]
+                        },
+                        "description": "Test validation: This should fail because material_code is missing"
+                    }
+                },
+                {
+                    "name": "❌ Create Material - Invalid Type",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"call\",\n    \"params\": {\n        \"material_code\": \"INV001\",\n        \"material_name\": \"Invalid Type Material\",\n        \"material_type\": \"invalid_type\",\n        \"material_buy_price\": 150.0,\n        \"supplier_id\": 1\n    },\n    \"id\": null\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/materials",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "materials"]
+                        },
+                        "description": "Test validation: This should fail because material_type must be 'fabric', 'jeans', or 'cotton'"
+                    }
+                },
+                {
+                    "name": "❌ Get Non-existent Material",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/materials/99999",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "materials", "99999"]
+                        },
+                        "description": "Test error handling: This should return 'Material not found' error using GET method"
+                    }
+                },
+                {
+                    "name": "❌ Update Non-existent Material",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"call\",\n    \"params\": {\n        \"material_name\": \"Updated Name\"\n    },\n    \"id\": null\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/materials/99999",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "materials", "99999"]
+                        },
+                        "description": "Test error handling: This should return 'Material not found' error using PUT method"
+                    }
+                },
+                {
+                    "name": "❌ Delete Non-existent Material",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"call\",\n    \"params\": {},\n    \"id\": null\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/materials/99999",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "materials", "99999"]
+                        },
+                        "description": "Test error handling: This should return 'Material not found' error using DELETE method"
+                    }
+                }
+            ],
+            "description": "Test cases to verify validations and error handling using proper REST methods"
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:14100",
+            "type": "string"
+        },
+        {
+            "key": "material_id",
+            "value": "1",
+            "type": "string"
+        }
+    ]
+}

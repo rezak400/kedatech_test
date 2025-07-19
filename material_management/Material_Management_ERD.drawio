@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-01-01T00:00:00.000Z" agent="5.0" etag="ERD_Material_Management" version="22.1.16" type="device">
+  <diagram name="Material Management ERD" id="material-management-erd">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="Material Management System - ERD" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="400" y="40" width="360" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Supplier Entity -->
+        <mxCell id="supplier-entity" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="150" y="150" width="200" height="180" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="supplier-title" value="SUPPLIER" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="150" y="160" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="supplier-divider" value="" style="line;strokeWidth=2;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="190" width="180" height="10" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="supplier-id" value="🔑 id : Integer (PK)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="160" y="200" width="180" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="supplier-name" value="name : Char (Required)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="160" y="225" width="180" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="supplier-email" value="email : Char" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="160" y="250" width="180" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="supplier-phone" value="phone : Char" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="160" y="275" width="180" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="supplier-address" value="address : Text" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="160" y="300" width="180" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Material Entity -->
+        <mxCell id="material-entity" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="500" y="150" width="250" height="220" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="material-title" value="MATERIAL" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="500" y="160" width="250" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="material-divider" value="" style="line;strokeWidth=2;html=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="190" width="230" height="10" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="material-id" value="🔑 id : Integer (PK)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="510" y="200" width="230" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="material-code" value="material_code : Char (Required, Unique)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="510" y="225" width="230" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="material-name" value="material_name : Char (Required)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="510" y="250" width="230" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="material-type" value="material_type : Selection (Required)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="510" y="275" width="230" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="material-type-values" value="• Fabric, Jeans, Cotton" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="520" y="295" width="210" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="material-price" value="material_buy_price : Float (Required)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="510" y="315" width="230" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="material-price-constraint" value="• Minimum value: 100" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="520" y="335" width="210" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="material-supplier-fk" value="🔗 supplier_id : Many2one (FK)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="510" y="350" width="230" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- Relationship Line -->
+        <mxCell id="relationship-line" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="350" y="240" as="sourcePoint" />
+            <mxPoint x="500" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Cardinality Labels -->
+        <mxCell id="cardinality-one" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="360" y="215" width="20" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="cardinality-many" value="N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="470" y="215" width="20" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Relationship Label -->
+        <mxCell id="relationship-label" value="supplies" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="400" y="250" width="50" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend-box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="150" y="450" width="300" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-title" value="LEGEND" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="150" y="460" width="300" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-pk" value="🔑 Primary Key" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="160" y="485" width="130" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-fk" value="🔗 Foreign Key" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="160" y="510" width="130" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-required" value="Required Field" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="300" y="485" width="130" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-constraint" value="• Constraint/Note" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="300" y="510" width="130" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Business Rules -->
+        <mxCell id="rules-box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="500" y="450" width="250" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="rules-title" value="BUSINESS RULES" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="500" y="460" width="250" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="rule1" value="1. Material code must be unique" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="510" y="485" width="230" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="rule2" value="2. Material buy price ≥ 100" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="510" y="505" width="230" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="rule3" value="3. All required fields must be filled" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="510" y="525" width="230" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="rule4" value="4. One supplier can supply many materials" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="510" y="545" width="230" height="15" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile> 
